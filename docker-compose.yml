@@ -1,0 +1,29 @@
+###############################################################################
+version: "3.1"
+services:
+
+    # mysql:
+    #   image: mysql:8.0
+    #   container_name: ecole-mysql
+    #   working_dir: /application
+    #   volumes:
+    #     - .:/application
+    #   environment:
+    #     - MYSQL_ROOT_PASSWORD=1996
+    #     - MYSQL_DATABASE=Ecole
+    #     - MYSQL_USER=root
+    #     - MYSQL_PASSWORD=root
+    #   ports:
+    #     - "9082:3306"
+
+    webserver:
+      build: ./docker_container/
+      container_name: ecole-webserver
+      ports:
+        - 9081:80
+      volumes:
+        - ./www:/var/www/html/
+        - ./docker_container/000-default.conf:/etc/apache2/sites-available/000-default.conf
+        - ./docker_container/apache2.conf:/etc/apache2/apache2.conf
+        - ./docker_container/php.ini:/usr/local/etc/php/php.ini
+

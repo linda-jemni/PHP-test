@@ -1,0 +1,15 @@
+{
+    "name": "ecole/note",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Linda JEMNI"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Ecole\\": "src/"
+        }
+    }
+}
